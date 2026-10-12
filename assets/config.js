@@ -5,7 +5,7 @@
    ========================================================= */
 window.SITE = {
   name: 'Atelier',
-  tagline: 'Confection textile · marque blanche',
+  tagline: 'Confection textile en marque blanche',
   email: 'contact@votre-domaine.ma',
   phone: '+212 6 00 00 00 00',
   address: 'Adresse de l\'atelier, Maroc',

@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{brand} — Fabrication textile en marque blanche</title>
 <meta name="description" content="Atelier de confection textile en marque blanche : t-shirts, chemises, polos, sweats, hoodies, casquettes et tote bags fabriqués et étiquetés à votre marque, à partir de 500 pièces.">
-<meta name="theme-color" content="#EFEDE8">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='3' fill='%2323241F'/%3E%3Cpath d='M8 24 24 8' stroke='%23B89A6A' stroke-width='2.4' stroke-dasharray='3 2.4'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#F1F2EE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='3' fill='%231E2F7A'/%3E%3Cpath d='M8 24 24 8' stroke='%23C8372D' stroke-width='2.4' stroke-dasharray='3 2.4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -18,8 +18,8 @@
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Accueil">
-      <svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="2" width="30" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 26 26 8" stroke="var(--accent)" stroke-width="2.2" stroke-dasharray="3 2.6"/></svg>
-      <span><span data-brand>Atelier</span><small data-tagline>Confection textile · marque blanche</small></span>
+      <svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="2" width="30" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 26 26 8" stroke="var(--thread)" stroke-width="2.2" stroke-dasharray="3 2.6"/></svg>
+      <span><span data-brand>Atelier</span><small data-tagline>Confection textile en marque blanche</small></span>
     </a>
     <nav class="menu" aria-label="Navigation principale">
       <a href="#supports">Supports</a>
@@ -37,16 +37,19 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Atelier de confection · Marque blanche</p>
-        <h1>Votre collection,<br><em>fabriquée</em> à votre nom.</h1>
+        <h1>Votre collection, fabriquée à votre nom.</h1>
         <p class="lead">Du t-shirt à la chemise, nous développons, marquons, contrôlons et conditionnons vos pièces, étiquetées à votre marque. Configurez votre modèle en ligne ou confiez-nous votre tech pack : une seule fiche technique suit votre série du devis à la livraison.</p>
         <div class="ctas">
           <a class="btn accent" href="studio.html">Configurer un modèle</a>
           <a class="btn" href="#devis" data-profile="techpack">J'ai déjà un tech pack</a>
         </div>
       </div>
-      <div class="hero-vis" id="heroVis" aria-hidden="true">
-        <div class="tag"><b>Échantillon avant série</b>Bon à tirer signé pour chaque emplacement de marquage.</div>
+      <div class="hero-vis">
+        <figure class="croquis">
+          <div id="croquis" aria-hidden="true"></div>
+          <figcaption>T-shirt regular, jersey coton bio 160 g/m². Cotes en cm sur produit fini, taille de référence M, tolérances de la fiche.</figcaption>
+        </figure>
+        <div class="swatches" id="swatches"></div>
       </div>
     </div>
     <div class="wrap">
@@ -62,7 +65,7 @@
   <section class="sec alt" id="entrees">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">Deux portes d'entrée</p><h2>Un motif ou un tech pack, une seule fiche.</h2></div>
+        <div><h2>Un motif ou un tech pack, une seule fiche.</h2></div>
         <p>Que vous arriviez avec une idée ou un dossier technique complet, tout est structuré dans la même fiche : elle alimente le devis, l'échantillon, la production, le contrôle qualité et la livraison.</p>
       </div>
       <div class="doors">
@@ -95,7 +98,7 @@
   <section class="sec" id="supports">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">Catalogue de supports</p><h2>Chaque support a ses propres options.</h2></div>
+        <div><h2>Chaque support a ses propres options.</h2></div>
         <p>Une chemise ne se configure pas comme un t-shirt : col, poignets et boutons d'un côté, encolure et grammage de l'autre. Chaque modèle de base est livré avec son tableau de mesures gradué.</p>
       </div>
       <div class="cat" id="cat"></div>
@@ -105,7 +108,7 @@
   <section class="sec alt" id="techniques">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">Marquage et impression</p><h2>Quatre techniques, des règles claires.</h2></div>
+        <div><h2>Quatre techniques, des règles claires.</h2></div>
         <p>Chaque emplacement est coté sur le croquis, avec son fichier, ses couleurs et sa technique. Aucune série ne démarre sans bon à tirer signé pour chaque emplacement.</p>
       </div>
       <div class="techgrid" id="techs"></div>
@@ -115,14 +118,14 @@
   <section class="sec" id="processus">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">Processus</p><h2>De votre écran à votre carton.</h2></div>
+        <div><h2>De votre écran à votre carton.</h2></div>
         <p>Chaque étape lit et écrit dans la même fiche technique : rien ne se perd entre le devis et la livraison.</p>
       </div>
       <ol class="steps-line">
         <li><h3>Devis</h3><p>Nomenclature, gamme de montage, marquage et grille tarifaire donnent un prix par palier et un délai.</p><small>Sous <span data-delay="quote">48 h</span></small></li>
         <li><h3>Échantillon et BAT</h3><p>Prototype mesuré contre les cotes cibles, validation critère par critère, BAT signé par emplacement.</p><small><span data-delay="sample">10 à 15 jours</span></small></li>
         <li><h3>Production</h3><p>Tailles et coloris figés, commande ferme et acompte : la série est lancée selon la gamme de montage.</p><small><span data-delay="series">4 à 6 semaines</span></small></li>
-        <li><h3>Contrôle qualité</h3><p>Échantillonnage selon ISO 2859-1, rapport chiffré joint à la livraison.</p><small>AQL 2,5 · zéro défaut critique</small></li>
+        <li><h3>Contrôle qualité</h3><p>Échantillonnage selon ISO 2859-1, rapport chiffré joint à la livraison.</p><small>AQL 2,5, aucun défaut critique</small></li>
         <li><h3>Livraison</h3><p>Étiquetage, pliage, polybag et cartons à votre marque, bon de livraison et photos.</p><small>Aucune mention de l'atelier</small></li>
       </ol>
     </div>
@@ -131,7 +134,7 @@
   <section class="sec alt" id="fiche">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">La fiche technique</p><h2>Onze blocs pour décrire un modèle de A à Z.</h2></div>
+        <div><h2>Onze blocs pour décrire un modèle de A à Z.</h2></div>
         <p>Inspirée des tech packs de marques, notre fiche couvre aussi ce qu'ils laissent de côté : versioning, gamme de montage, coloris, marquage structuré, packaging et contrôle qualité chiffré.</p>
       </div>
       <div class="blocks">
@@ -148,14 +151,13 @@
         <div class="blk"><b>11</b><span>Coûts et délais</span><small>Prix par palier, planning</small></div>
       </div>
       <div class="legend"><span><i></i>Partagé avec vous</span><span><i class="d"></i>Interne à l'atelier</span></div>
-      <p style="margin-top:28px"><a class="link" href="studio.html">Générer ma fiche dans le studio →</a></p>
+      <p style="margin-top:28px"><a class="link" href="studio.html">Générer ma fiche dans le studio</a></p>
     </div>
   </section>
 
   <section class="sec" id="qualite">
     <div class="wrap split">
       <div>
-        <p class="eyebrow">Contrôle qualité</p>
         <h2>Une série libérée sur des chiffres.</h2>
         <p class="lead">Chaque lot est contrôlé par échantillonnage sur la base de la fiche technique. Les défauts sont classés critiques, majeurs ou mineurs, et le rapport de contrôle accompagne la livraison.</p>
         <div class="facts" style="grid-template-columns:repeat(3,1fr);margin-top:36px">
@@ -184,7 +186,7 @@
   <section class="sec alt" id="marque-blanche">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">Marque blanche</p><h2>Tout ce qui porte un nom porte le vôtre.</h2></div>
+        <div><h2>Tout ce qui porte un nom porte le vôtre.</h2></div>
         <p>Aucune mention de l'atelier sur la pièce, les étiquettes, les colis ni les documents de livraison.</p>
       </div>
       <div class="wl">
@@ -198,7 +200,6 @@
   <section class="sec" id="faq">
     <div class="wrap split">
       <div>
-        <p class="eyebrow">Questions fréquentes</p>
         <h2>Avant de vous lancer.</h2>
       </div>
       <div class="faq">
@@ -215,7 +216,6 @@
   <section class="sec alt devis" id="devis">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Devis</p>
         <h2>Parlons de votre série.</h2>
         <p class="who">Décrivez votre projet en quelques lignes. Nous revenons vers vous sous <span data-delay="quote">48 h</span> avec un devis par palier et un planning d'échantillonnage.</p>
         <div class="coord"><a data-email href="#">email</a><br><a data-phone href="#">téléphone</a><br><span data-address></span></div>
@@ -251,8 +251,8 @@
 
 <footer class="foot">
   <div class="wrap">
-    <span>© <span data-year>2026</span> <span data-brand>Atelier</span> — <span data-legal>Raison sociale</span></span>
-    <span><a href="studio.html">Studio</a> · <a href="#devis">Contact</a> · Mentions légales · Confidentialité</span>
+    <span>© <span data-year>2026</span> <span data-brand>Atelier</span>, <span data-legal>Raison sociale</span></span>
+    <span class="links"><a href="studio.html">Studio</a><a href="#devis">Contact</a><span>Mentions légales</span><span>Confidentialité</span></span>
   </div>
 </footer>
 
@@ -263,25 +263,37 @@
 (function () {
   var C = window.CATALOG, $ = function (id) { return document.getElementById(id); };
 
-  /* Visuel d'accroche */
-  [['chemise', 'ciel', { manches: 'longues', col: 'classique', poche: 'poitrine' }, 'g1'],
-   ['tshirt', 'terracotta', null, 'g2'],
-   ['hoodie', 'marine', null, 'g3']].forEach(function (g) {
-    var d = document.createElement('div'); d.className = 'g ' + g[3];
-    d.innerHTML = C.draw(g[0], { color: C.COLORS[g[1]][1], opts: g[2] || C.defaults(g[0]), id: 'h' + g[3] });
-    $('heroVis').insertBefore(d, $('heroVis').firstChild);
-  });
+  /* Visuel d'accroche : le t-shirt de base avec ses cotes réelles (bloc 5), comme sur la fiche */
+  var opts = C.defaults('tshirt'), M = C.measures('tshirt', opts, 'unisexe'), ref = M.sizes.indexOf(M.ref), val = {};
+  M.rows.forEach(function (r) { val[r.idx] = r; });
+  function cote(k) { var r = val[k]; return (String(r.values[ref]).replace('.', ',')) + ' cm'; }
+  function tol(k) { return '± ' + String(val[k].tol).replace('.', ','); }
+  function dim(k, line, ext, tx, ty, anchor, rot, delay) {
+    return '<g class="dim" style="--d:' + delay + 's">' + (ext ? '<path class="ext" d="' + ext + '"/>' : '') + '<path d="' + line + '"/>' +
+      '<text x="' + tx + '" y="' + ty + '" text-anchor="' + anchor + '"' + (rot ? ' transform="rotate(-90 ' + tx + ' ' + ty + ')"' : '') + '>' +
+      '<tspan class="k">' + k + '</tspan>\u2002' + cote(k) + ' <tspan class="t">' + tol(k) + '</tspan></text></g>';
+  }
+  var dims =
+    dim('A', 'M96 212 H304 M96 206 V218 M304 206 V218', '', 200, 202, 'middle', false, 0) +
+    dim('F', 'M118 46 L68 64 M118 40 V52 M68 58 V70', 'M120 60 L118 46 M70 78 L68 64', 56, 40, 'end', false, .25) +
+    dim('D', 'M396 60 V445 M390 60 H402 M390 445 H402', 'M120 60 H396 M304 445 H396', 412, 252, 'middle', true, .5) +
+    dim('C', 'M96 466 H304 M96 460 V472 M304 460 V472', 'M96 445 V466 M304 445 V466', 200, 490, 'middle', false, .75);
+  $('croquis').innerHTML = C.draw('tshirt', { color: C.COLORS.ecru[1], opts: opts, id: 'hero', overlay: dims })
+    .replace('viewBox="0 0 400 480"', 'viewBox="-30 20 470 480"');
+  $('swatches').innerHTML = C.SUPPORTS.tshirt.colors.map(function (k) {
+    return '<i style="background:' + C.COLORS[k][1] + '" title="' + C.COLORS[k][0] + '"></i>';
+  }).join('') + '<small>' + C.SUPPORTS.tshirt.colors.length + ' coloris de base, du blanc au noir.</small>';
 
   /* Catalogue */
   var shown = { tshirt: 'ecru', chemise: 'blanc', polo: 'marine', sweat: 'gris', hoodie: 'foret', casquette: 'sable', tote: 'naturel' };
   var h = '', opts = '';
   Object.keys(C.SUPPORTS).forEach(function (k) {
-    var s = C.SUPPORTS[k], groups = s.options.map(function (g) { return g.label; }).slice(0, 3);
-    h += '<a class="card" href="studio.html#' + k + '"><div class="pic">' + C.draw(k, { color: C.COLORS[shown[k]][1], id: 'c' + k }) + '</div><div class="txt"><p class="eyebrow">' + s.family + '</p><h3>' + s.label + '</h3><p>' + s.pitch + '</p><div class="meta">' +
-      groups.map(function (g) { return '<span>' + g + '</span>'; }).join('') + '<span>' + s.materials.length + ' matières</span></div><span class="go">Configurer →</span></div></a>';
+    var s = C.SUPPORTS[k], groups = s.options.map(function (g, i) { return i ? g.label.toLowerCase() : g.label; }).slice(0, 3);
+    h += '<a class="card" href="studio.html#' + k + '"><div class="pic">' + C.draw(k, { color: C.COLORS[shown[k]][1], id: 'c' + k }) + '</div><div class="txt"><h3>' + s.label + '</h3><p class="fam">' + s.family + '</p><p>' + s.pitch + '</p><p class="meta">' +
+      groups.join(', ') + '. ' + s.materials.length + ' matières.</p><span class="go">Ouvrir dans le studio</span></div></a>';
     opts += '<option>' + s.label + '</option>';
   });
-  h += '<a class="card" href="#devis"><div class="pic" style="font-family:var(--serif);font-size:84px;color:var(--accent)">+</div><div class="txt"><p class="eyebrow">Sur mesure</p><h3>Autre pièce</h3><p>Robe, pantalon, veste, linge de maison : nous développons votre modèle à partir de votre tech pack.</p><span class="go">Nous écrire →</span></div></a>';
+  h += '<a class="card" href="#devis"><div class="pic" style="font-family:var(--display);font-weight:800;font-size:84px;color:var(--accent)">+</div><div class="txt"><h3>Autre pièce</h3><p class="fam">Sur mesure</p><p>Robe, pantalon, veste, linge de maison : nous développons votre modèle à partir de votre tech pack.</p><span class="go">Nous écrire</span></div></a>';
   $('cat').innerHTML = h;
   $('fSup').insertAdjacentHTML('beforeend', opts + '<option>Autre pièce</option>');
 
