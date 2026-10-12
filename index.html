@@ -1,200 +1,299 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VM-AsmaOMp — Accueil</title>
-  <meta name="description" content="Page d'accueil de présentation du projet VM-AsmaOMp.">
-  <style>
-    :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
-      --text: #1f2328;
-      --muted: #5c6370;
-      --accent: #2f6fed;
-      --accent-text: #ffffff;
-      --border: #e3e3df;
-      --radius: 12px;
-      --max: 960px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #14161a;
-        --surface: #1d2026;
-        --text: #e8e9eb;
-        --muted: #a0a6b0;
-        --accent: #6b9bff;
-        --accent-text: #0d1117;
-        --border: #2c3038;
-      }
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    a { color: var(--accent); }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-    }
-    header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 64px;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.15rem;
-      text-decoration: none;
-      color: var(--text);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--muted);
-    }
-    nav a:hover { color: var(--text); }
-
-    .hero {
-      padding: 80px 0 64px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.2;
-      margin: 0 0 16px;
-    }
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 620px;
-      margin: 0 auto 32px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: var(--radius);
-      background: var(--accent);
-      color: var(--accent-text);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .btn:hover { opacity: 0.9; }
-
-    section { padding: 48px 0; }
-    section h2 {
-      font-size: 1.6rem;
-      margin: 0 0 24px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-    .card h3 { margin: 0 0 8px; font-size: 1.1rem; }
-    .card p { margin: 0; color: var(--muted); }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{brand} — Fabrication textile en marque blanche</title>
+<meta name="description" content="Atelier de confection textile en marque blanche : t-shirts, chemises, polos, sweats, hoodies, casquettes et tote bags fabriqués et étiquetés à votre marque, à partir de 500 pièces.">
+<meta name="theme-color" content="#EFEDE8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='3' fill='%2323241F'/%3E%3Cpath d='M8 24 24 8' stroke='%23B89A6A' stroke-width='2.4' stroke-dasharray='3 2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a class="logo" href="#">VM-AsmaOMp</a>
-      <nav aria-label="Navigation principale">
-        <ul>
-          <li><a href="#a-propos">À propos</a></li>
-          <li><a href="#services">Ce que je propose</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<a class="skip" href="#main">Aller au contenu</a>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Bienvenue sur VM-AsmaOMp</h1>
-        <p>Un espace simple pour présenter mon projet, mes idées et mon travail. Prenez le temps de découvrir ce qui m'anime.</p>
-        <a class="btn" href="#a-propos">En savoir plus</a>
-      </div>
-    </section>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Accueil">
+      <svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="2" width="30" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 26 26 8" stroke="var(--accent)" stroke-width="2.2" stroke-dasharray="3 2.6"/></svg>
+      <span><span data-brand>Atelier</span><small data-tagline>Confection textile · marque blanche</small></span>
+    </a>
+    <nav class="menu" aria-label="Navigation principale">
+      <a href="#supports">Supports</a>
+      <a href="#techniques">Marquage</a>
+      <a href="#processus">Processus</a>
+      <a href="#fiche">Fiche technique</a>
+      <a href="#qualite">Qualité</a>
+      <a href="studio.html">Studio</a>
+    </nav>
+    <a class="btn sm solid" href="#devis">Demander un devis</a>
+  </div>
+</header>
 
-    <section id="a-propos">
-      <div class="container">
-        <h2>À propos</h2>
-        <p>Je m'appelle Asmaa. Ce site présente mon projet et sert de point de départ pour partager mes réalisations. Il est volontairement léger : une seule page, sans dépendance, rapide à charger sur tous les appareils.</p>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <h2>Ce que je propose</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Conception</h3>
-            <p>Imaginer des solutions claires et adaptées aux besoins réels.</p>
-          </article>
-          <article class="card">
-            <h3>Développement</h3>
-            <p>Construire des outils fiables, simples à utiliser et à maintenir.</p>
-          </article>
-          <article class="card">
-            <h3>Accompagnement</h3>
-            <p>Expliquer, documenter et partager les connaissances.</p>
-          </article>
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Atelier de confection · Marque blanche</p>
+        <h1>Votre collection,<br><em>fabriquée</em> à votre nom.</h1>
+        <p class="lead">Du t-shirt à la chemise, nous développons, marquons, contrôlons et conditionnons vos pièces, étiquetées à votre marque. Configurez votre modèle en ligne ou confiez-nous votre tech pack : une seule fiche technique suit votre série du devis à la livraison.</p>
+        <div class="ctas">
+          <a class="btn accent" href="studio.html">Configurer un modèle</a>
+          <a class="btn" href="#devis" data-profile="techpack">J'ai déjà un tech pack</a>
         </div>
       </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>Une question ou une idée de collaboration ? N'hésitez pas à me contacter via <a href="https://github.com/asmaaelbarhmi">GitHub</a>.</p>
+      <div class="hero-vis" id="heroVis" aria-hidden="true">
+        <div class="tag"><b>Échantillon avant série</b>Bon à tirer signé pour chaque emplacement de marquage.</div>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      &copy; 2026 VM-AsmaOMp. Tous droits réservés.
     </div>
-  </footer>
+    <div class="wrap">
+      <div class="facts">
+        <div><b><span data-moq>500</span> pièces</b><span>minimum par modèle, <span data-moq-color>100</span> par coloris</span></div>
+        <div><b data-delay="quote">48 h</b><span>pour recevoir votre devis chiffré</span></div>
+        <div><b data-delay="sample">10 à 15 jours</b><span>pour l'échantillon ou le prototype</span></div>
+        <div><b data-delay="series">4 à 6 semaines</b><span>de production après validation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="entrees">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Deux portes d'entrée</p><h2>Un motif ou un tech pack, une seule fiche.</h2></div>
+        <p>Que vous arriviez avec une idée ou un dossier technique complet, tout est structuré dans la même fiche : elle alimente le devis, l'échantillon, la production, le contrôle qualité et la livraison.</p>
+      </div>
+      <div class="doors">
+        <article class="door">
+          <p class="eyebrow">Créateurs, marques émergentes</p>
+          <h3>Vous avez un motif.</h3>
+          <ol>
+            <li>Choisissez un support de base déjà documenté : mesures, nomenclature et gamme de montage sont prêtes.</li>
+            <li>Sélectionnez coupe, matière, coloris et finitions propres à chaque support.</li>
+            <li>Placez vos motifs, choisissez la technique, voyez le prix par palier.</li>
+            <li>Le studio génère votre fiche technique, prête pour le devis.</li>
+          </ol>
+          <a class="btn accent" href="studio.html">Ouvrir le studio</a>
+        </article>
+        <article class="door dark">
+          <p class="eyebrow">Marques établies, industriels</p>
+          <h3>Vous avez un tech pack.</h3>
+          <ol>
+            <li>Envoyez votre dossier (PDF, Excel) avec vos croquis, mesures et matières.</li>
+            <li>Nous le structurons dans notre fiche en 11 blocs et complétons ce qui manque : gamme, coûts, marquage, packaging.</li>
+            <li>Vous recevez un devis par palier et un planning d'échantillonnage.</li>
+            <li>Les prototypes sont validés critère par critère, puis la série est lancée.</li>
+          </ol>
+          <a class="btn" href="#devis" data-profile="techpack">Envoyer mon tech pack</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="supports">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Catalogue de supports</p><h2>Chaque support a ses propres options.</h2></div>
+        <p>Une chemise ne se configure pas comme un t-shirt : col, poignets et boutons d'un côté, encolure et grammage de l'autre. Chaque modèle de base est livré avec son tableau de mesures gradué.</p>
+      </div>
+      <div class="cat" id="cat"></div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="techniques">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Marquage et impression</p><h2>Quatre techniques, des règles claires.</h2></div>
+        <p>Chaque emplacement est coté sur le croquis, avec son fichier, ses couleurs et sa technique. Aucune série ne démarre sans bon à tirer signé pour chaque emplacement.</p>
+      </div>
+      <div class="techgrid" id="techs"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="processus">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Processus</p><h2>De votre écran à votre carton.</h2></div>
+        <p>Chaque étape lit et écrit dans la même fiche technique : rien ne se perd entre le devis et la livraison.</p>
+      </div>
+      <ol class="steps-line">
+        <li><h3>Devis</h3><p>Nomenclature, gamme de montage, marquage et grille tarifaire donnent un prix par palier et un délai.</p><small>Sous <span data-delay="quote">48 h</span></small></li>
+        <li><h3>Échantillon et BAT</h3><p>Prototype mesuré contre les cotes cibles, validation critère par critère, BAT signé par emplacement.</p><small><span data-delay="sample">10 à 15 jours</span></small></li>
+        <li><h3>Production</h3><p>Tailles et coloris figés, commande ferme et acompte : la série est lancée selon la gamme de montage.</p><small><span data-delay="series">4 à 6 semaines</span></small></li>
+        <li><h3>Contrôle qualité</h3><p>Échantillonnage selon ISO 2859-1, rapport chiffré joint à la livraison.</p><small>AQL 2,5 · zéro défaut critique</small></li>
+        <li><h3>Livraison</h3><p>Étiquetage, pliage, polybag et cartons à votre marque, bon de livraison et photos.</p><small>Aucune mention de l'atelier</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec alt" id="fiche">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">La fiche technique</p><h2>Onze blocs pour décrire un modèle de A à Z.</h2></div>
+        <p>Inspirée des tech packs de marques, notre fiche couvre aussi ce qu'ils laissent de côté : versioning, gamme de montage, coloris, marquage structuré, packaging et contrôle qualité chiffré.</p>
+      </div>
+      <div class="blocks">
+        <div class="blk"><b>1</b><span>Identité</span><small>Référence, version, statut</small></div>
+        <div class="blk"><b>2</b><span>Croquis</span><small>Vues devant, dos, détails, coloris</small></div>
+        <div class="blk"><b>3</b><span>Matières et coloris</span><small>Composition, grammage, matrice des coloris</small></div>
+        <div class="blk int"><b>4</b><span>Nomenclature</span><small>Composants, consommations, coûts</small></div>
+        <div class="blk"><b>5</b><span>Mesures</span><small>Gradation et tolérances par point</small></div>
+        <div class="blk int"><b>6</b><span>Gamme de montage</span><small>Opérations, points, temps minute</small></div>
+        <div class="blk"><b>7</b><span>Marquage</span><small>Emplacements cotés, fichiers, BAT</small></div>
+        <div class="blk"><b>8</b><span>Étiquetage et packaging</span><small>Griffe, composition, hang-tag, carton</small></div>
+        <div class="blk"><b>9</b><span>Prototypage</span><small>OK proto, OK confo, OK prod</small></div>
+        <div class="blk int"><b>10</b><span>Contrôle qualité</span><small>Points de contrôle, AQL</small></div>
+        <div class="blk"><b>11</b><span>Coûts et délais</span><small>Prix par palier, planning</small></div>
+      </div>
+      <div class="legend"><span><i></i>Partagé avec vous</span><span><i class="d"></i>Interne à l'atelier</span></div>
+      <p style="margin-top:28px"><a class="link" href="studio.html">Générer ma fiche dans le studio →</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="qualite">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Contrôle qualité</p>
+        <h2>Une série libérée sur des chiffres.</h2>
+        <p class="lead">Chaque lot est contrôlé par échantillonnage sur la base de la fiche technique. Les défauts sont classés critiques, majeurs ou mineurs, et le rapport de contrôle accompagne la livraison.</p>
+        <div class="facts" style="grid-template-columns:repeat(3,1fr);margin-top:36px">
+          <div><b>2,5</b><span>AQL défauts majeurs</span></div>
+          <div><b>4,0</b><span>AQL défauts mineurs</span></div>
+          <div><b>0</b><span>défaut critique accepté</span></div>
+        </div>
+      </div>
+      <div class="scroll">
+        <table class="tbl">
+          <thead><tr><th>Point de contrôle</th><th>Critère d'acceptation</th><th>Classe</th></tr></thead>
+          <tbody>
+            <tr><td>Mesures</td><td>5 points clés par taille, dans les tolérances de la fiche</td><td><span class="pill">Majeur</span></td></tr>
+            <tr><td>Tissu</td><td>Pas de défaut de tissage, coloris conforme à l'échantillon</td><td><span class="pill">Majeur</span></td></tr>
+            <tr><td>Coutures</td><td>Points réguliers, pas de saut, pas de fronce</td><td><span class="pill">Majeur</span></td></tr>
+            <tr><td>Boutons et boutonnières</td><td>Boutons solidaires, boutonnières nettes</td><td><span class="pill crit">Critique</span></td></tr>
+            <tr><td>Marquage</td><td>Position ± 0,5 cm, couleurs conformes au BAT, pas de craquelure après lavage</td><td><span class="pill crit">Critique</span></td></tr>
+            <tr><td>Étiquetage</td><td>Griffe, composition, taille et EAN corrects</td><td><span class="pill crit">Critique</span></td></tr>
+            <tr><td>Finition et conditionnement</td><td>Pas de fil ni de tache, pliage et polybag conformes</td><td><span class="pill">Mineur</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="marque-blanche">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Marque blanche</p><h2>Tout ce qui porte un nom porte le vôtre.</h2></div>
+        <p>Aucune mention de l'atelier sur la pièce, les étiquettes, les colis ni les documents de livraison.</p>
+      </div>
+      <div class="wl">
+        <div><h3>Étiquettes</h3><p>Griffe de col tissée ou imprimée, ou transfert sans étiquette. Étiquette de composition et pictogrammes d'entretien selon ISO 3758.</p></div>
+        <div><h3>Hang-tag et EAN</h3><p>Carton 300 g à votre charte, code EAN par taille et coloris, prix si vous le souhaitez.</p></div>
+        <div><h3>Conditionnement</h3><p>Pliage standardisé, polybag recyclé ou pochette kraft, cartons mono-référence ou assortis avec étiquette générée.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2>Avant de vous lancer.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Quelle est la quantité minimum ?</summary><p><span data-moq>500</span> pièces par modèle et <span data-moq-color>100</span> pièces par coloris. Les tarifs dégressifs s'appliquent à partir de 1 000, 2 500 et 5 000 pièces.</p></details>
+        <details><summary>Puis-je voir une pièce avant de lancer la série ?</summary><p>Oui, toujours. Un échantillon physique est réalisé en <span data-delay="sample">10 à 15 jours</span> après réception des fichiers et matières. Il est mesuré contre la fiche, validé critère par critère, et ses frais sont déduits de votre commande.</p></details>
+        <details><summary>Quels fichiers dois-je fournir pour le marquage ?</summary><p>Un fichier vectoriel (SVG, AI, PDF) pour la sérigraphie et la broderie, un PNG ou PDF 300 dpi à fond transparent pour le DTF et la sublimation. Le studio vous indique la règle de chaque technique au moment du placement.</p></details>
+        <details><summary>Je n'ai pas de tech pack, est-ce un problème ?</summary><p>Non. Nos supports de base sont déjà documentés : mesures graduées, nomenclature et gamme de montage. Le studio génère la fiche à partir de vos choix.</p></details>
+        <details><summary>Le prix affiché dans le studio est-il définitif ?</summary><p>C'est une estimation indicative hors taxes. Le devis est confirmé après analyse de la fiche, puis figé à la validation de l'échantillon.</p></details>
+        <details><summary>Ma fiche technique m'appartient-elle ?</summary><p>Oui. Elle vous est transmise à chaque version, et un accord de confidentialité peut être signé avant tout échange de fichiers.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt devis" id="devis">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Devis</p>
+        <h2>Parlons de votre série.</h2>
+        <p class="who">Décrivez votre projet en quelques lignes. Nous revenons vers vous sous <span data-delay="quote">48 h</span> avec un devis par palier et un planning d'échantillonnage.</p>
+        <div class="coord"><a data-email href="#">email</a><br><a data-phone href="#">téléphone</a><br><span data-address></span></div>
+      </div>
+      <form class="f" data-lead novalidate>
+        <div class="full">
+          <span style="font-size:14px;font-weight:400;display:block;margin-bottom:8px">Vous êtes</span>
+          <div class="radios">
+            <label><input type="radio" name="profil" value="Créateur ou marque émergente" data-label="Profil" checked>Créateur, marque émergente</label>
+            <label><input type="radio" name="profil" value="Marque avec tech pack" data-label="Profil" id="pTech">Marque avec tech pack</label>
+            <label><input type="radio" name="profil" value="Entreprise, uniformes, événement" data-label="Profil">Entreprise, événement</label>
+          </div>
+        </div>
+        <label>Nom<input type="text" name="nom" data-label="Nom" autocomplete="name" required></label>
+        <label>Société ou projet<input type="text" name="societe" data-label="Société" autocomplete="organization"></label>
+        <label>Email<input type="email" name="email" data-label="Email" autocomplete="email" required></label>
+        <label>Téléphone / WhatsApp<input type="tel" name="tel" data-label="Téléphone" autocomplete="tel"></label>
+        <label>Support
+          <select name="support" data-label="Support" id="fSup"><option value="">À définir</option></select>
+        </label>
+        <label>Quantité envisagée
+          <select name="quantite" data-label="Quantité"><option>500 – 999</option><option>1 000 – 2 499</option><option>2 500 – 4 999</option><option>5 000 et plus</option><option>Je ne sais pas encore</option></select>
+        </label>
+        <label class="full">Votre projet<textarea name="brief" data-label="Projet" placeholder="Pièces, matières, marquage, dates souhaitées, packaging…"></textarea></label>
+        <p class="note">Vous avez un tech pack ou des fichiers de motif ? Nous vous les demanderons en réponse à votre message.</p>
+        <p class="err" role="alert"></p>
+        <button class="btn solid" type="submit" style="justify-self:start">Envoyer ma demande</button>
+        <p class="ok" role="status">Merci, votre demande est bien partie. Nous revenons vers vous sous <span data-delay="quote">48 h</span>.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span data-year>2026</span> <span data-brand>Atelier</span> — <span data-legal>Raison sociale</span></span>
+    <span><a href="studio.html">Studio</a> · <a href="#devis">Contact</a> · Mentions légales · Confidentialité</span>
+  </div>
+</footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/catalog.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  var C = window.CATALOG, $ = function (id) { return document.getElementById(id); };
+
+  /* Visuel d'accroche */
+  [['chemise', 'ciel', { manches: 'longues', col: 'classique', poche: 'poitrine' }, 'g1'],
+   ['tshirt', 'terracotta', null, 'g2'],
+   ['hoodie', 'marine', null, 'g3']].forEach(function (g) {
+    var d = document.createElement('div'); d.className = 'g ' + g[3];
+    d.innerHTML = C.draw(g[0], { color: C.COLORS[g[1]][1], opts: g[2] || C.defaults(g[0]), id: 'h' + g[3] });
+    $('heroVis').insertBefore(d, $('heroVis').firstChild);
+  });
+
+  /* Catalogue */
+  var shown = { tshirt: 'ecru', chemise: 'blanc', polo: 'marine', sweat: 'gris', hoodie: 'foret', casquette: 'sable', tote: 'naturel' };
+  var h = '', opts = '';
+  Object.keys(C.SUPPORTS).forEach(function (k) {
+    var s = C.SUPPORTS[k], groups = s.options.map(function (g) { return g.label; }).slice(0, 3);
+    h += '<a class="card" href="studio.html#' + k + '"><div class="pic">' + C.draw(k, { color: C.COLORS[shown[k]][1], id: 'c' + k }) + '</div><div class="txt"><p class="eyebrow">' + s.family + '</p><h3>' + s.label + '</h3><p>' + s.pitch + '</p><div class="meta">' +
+      groups.map(function (g) { return '<span>' + g + '</span>'; }).join('') + '<span>' + s.materials.length + ' matières</span></div><span class="go">Configurer →</span></div></a>';
+    opts += '<option>' + s.label + '</option>';
+  });
+  h += '<a class="card" href="#devis"><div class="pic" style="font-family:var(--serif);font-size:84px;color:var(--accent)">+</div><div class="txt"><p class="eyebrow">Sur mesure</p><h3>Autre pièce</h3><p>Robe, pantalon, veste, linge de maison : nous développons votre modèle à partir de votre tech pack.</p><span class="go">Nous écrire →</span></div></a>';
+  $('cat').innerHTML = h;
+  $('fSup').insertAdjacentHTML('beforeend', opts + '<option>Autre pièce</option>');
+
+  /* Techniques */
+  $('techs').innerHTML = Object.keys(C.TECHS).map(function (k) {
+    var t = C.TECHS[k];
+    return '<article><h3>' + t.label + '</h3><p class="muted" style="font-size:15px">' + t.short + '</p><dl><div><dt>Fichier attendu</dt><dd>' + t.file + '</dd></div><div><dt>Couleurs</dt><dd>' + t.colors + '</dd></div><div><dt>Contraintes</dt><dd>' + t.rules + '</dd></div></dl></article>';
+  }).join('');
+
+  /* Lien « tech pack » : présélectionne le profil */
+  document.querySelectorAll('[data-profile="techpack"]').forEach(function (a) { a.addEventListener('click', function () { $('pTech').checked = true; }); });
+})();
+</script>
 </body>
 </html>

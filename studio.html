@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studio — {brand}</title>
+<meta name="description" content="Configurez votre pièce : support, coupe, matière, coloris, marquage, étiquetage et quantités. Estimation par palier et fiche technique générée.">
+<meta name="theme-color" content="#EFEDE8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='3' fill='%2323241F'/%3E%3Cpath d='M8 24 24 8' stroke='%23B89A6A' stroke-width='2.4' stroke-dasharray='3 2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Bebas+Neue&family=Playfair+Display:wght@700&family=Pacifico&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.head{padding:clamp(32px,5vw,64px) 0 24px}
+.head .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:end}
+.head h1{font-size:clamp(40px,5.6vw,80px);letter-spacing:-.01em;line-height:.98;margin-top:12px}
+.head h1 em{font-style:italic;color:var(--accent)}
+.head p.lead{max-width:48ch;color:var(--muted);font-size:17px}
+
+.studio{display:grid;grid-template-columns:minmax(0,390px) minmax(0,1fr) minmax(0,320px);gap:20px;align-items:start;padding-bottom:64px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.step{padding:20px 22px;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step h3{font-size:24px;display:flex;align-items:baseline;gap:12px}
+.step h3 i{font-style:italic;color:var(--accent);font-size:20px}
+.step h3 .val{margin-left:auto;font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:300;text-align:right}
+.hint{font-size:13px;color:var(--muted);margin-top:4px}
+.grp{margin-top:14px}
+.grp>span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.sup{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.sup button{border:1px solid var(--line);background:transparent;border-radius:var(--r);padding:10px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;font-weight:400;transition:border-color .2s,background .2s;min-width:0}
+.sup button svg{width:40px;height:40px}
+.sup button[aria-pressed="true"]{border-color:var(--fg);background:color-mix(in srgb,var(--fg) 6%,transparent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:400;min-height:36px}
+.chips button small{color:var(--muted);font-size:12px;margin-left:4px}
+.chips button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chips button[aria-pressed="true"] small{color:inherit;opacity:.7}
+.chips button:disabled{opacity:.4;cursor:not-allowed}
+.mats{display:grid;gap:8px;margin-top:14px}
+.mats button{display:grid;grid-template-columns:1fr auto;gap:2px 12px;text-align:left;border:1px solid var(--line);background:transparent;border-radius:var(--r);padding:10px 12px;font-weight:400;font-size:14.5px}
+.mats button small{grid-column:1;font-size:12.5px;color:var(--muted);font-weight:300}
+.mats button em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-size:13px;color:var(--muted)}
+.mats button[aria-pressed="true"]{border-color:var(--fg);background:color-mix(in srgb,var(--fg) 6%,transparent)}
+.sw{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.sw button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);padding:0;position:relative}
+.sw button[aria-pressed="true"]::after{content:"";position:absolute;inset:-5px;border:1.5px solid var(--fg);border-radius:50%}
+.zones{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.zones button{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:7px 12px;font-size:13.5px;font-weight:400;display:inline-flex;align-items:center;gap:6px;min-height:36px}
+.zones button .ck{width:14px;height:14px;border:1px solid currentColor;border-radius:3px;display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.zones button.on .ck{background:var(--accent);border-color:var(--accent);color:#fff}
+.zones button.act{border-color:var(--fg);box-shadow:0 0 0 1px var(--fg)}
+.mk{margin-top:14px;border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:14px;background:var(--bg)}
+.mk-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.mk-h b{font-weight:500}
+.mk-h small{font-size:12.5px;color:var(--muted)}
+.techs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.techs button{border:1px solid var(--line);background:transparent;border-radius:var(--r);padding:8px 10px;text-align:left;font-size:13.5px;font-weight:400;display:flex;flex-direction:column;gap:1px}
+.techs button small{font-size:11.5px;color:var(--muted);font-weight:300;line-height:1.35}
+.techs button[aria-pressed="true"]{border-color:var(--fg);background:color-mix(in srgb,var(--fg) 6%,transparent)}
+.techs button:disabled{opacity:.4;cursor:not-allowed}
+.rule{font-size:12.5px;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px;line-height:1.5}
+.tabs{display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tabs button{flex:1;padding:9px 6px;background:transparent;border:0;font-size:13.5px;font-weight:400;border-right:1px solid var(--line)}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg)}
+.tabp{display:none;flex-direction:column;gap:10px}
+.tabp.on{display:flex}
+.in,select.in{width:100%;font:inherit;font-size:16px;font-weight:300;color:var(--fg);background:transparent;border:1px solid var(--line-2);border-radius:var(--r);padding:9px 12px;min-height:44px}
+select.in option{color:#23241F}
+.drop{border:1px dashed var(--line-2);border-radius:var(--r);padding:16px;text-align:center;font-size:14px;color:var(--muted);cursor:pointer;display:block}
+.drop input{display:none}
+.drop.over{border-color:var(--accent);color:var(--fg)}
+.inks{display:flex;gap:12px;align-items:center;font-size:14px;flex-wrap:wrap}
+.inks label{display:flex;align-items:center;gap:8px}
+.inks input[type=color]{width:34px;height:34px;border:1px solid var(--line-2);border-radius:50%;padding:0;background:none;cursor:pointer}
+.range{display:grid;grid-template-columns:70px 1fr 54px;align-items:center;gap:10px;font-size:13.5px}
+.range input{width:100%;accent-color:var(--bronze)}
+.range span:last-child{text-align:right;color:var(--muted)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tog{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:400;cursor:pointer}
+.tog input{accent-color:var(--bronze);width:18px;height:18px}
+.status{font-size:13px;color:var(--muted);min-height:18px}
+.status.err{color:var(--danger)}
+.qty{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}
+.qty button{border:1px solid var(--line);background:transparent;border-radius:var(--r);padding:9px 4px;font-size:14px;font-weight:400}
+.qty button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.sizes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:14px}
+.sizes label{display:grid;gap:4px;font-size:12px;text-align:center;font-weight:400}
+.sizes input{width:100%;font:inherit;font-size:15px;text-align:center;color:var(--fg);background:transparent;border:1px solid var(--line-2);border-radius:var(--r);padding:6px 2px;min-height:40px}
+.sizes .tot{font-size:12.5px;color:var(--muted);grid-column:1/-1;margin-top:2px;text-align:left}
+.sizes .tot.bad{color:var(--danger)}
+
+.stage{position:sticky;top:84px;background:var(--stage);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:640px}
+.stage .top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.stage .top b{font-weight:500;color:var(--fg)}
+.views{display:flex;border:1px solid var(--line-2);border-radius:999px;overflow:hidden}
+.views button{border:0;background:transparent;padding:6px 14px;font-size:13px;font-weight:400}
+.views button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.mock{flex:1;display:flex;align-items:center;justify-content:center;min-height:500px;touch-action:none}
+.mock svg{width:100%;max-width:540px;height:auto;display:block;user-select:none;-webkit-user-select:none}
+.mock .drag{cursor:grab}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:2px}
+.thumbs button{flex:none;width:56px;height:66px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:3px}
+.thumbs button[aria-pressed="true"]{border-color:var(--fg)}
+.thumbs svg{width:100%;height:100%}
+.stage .acts{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.tip{font-size:12.5px;color:var(--muted)}
+
+.sum{padding:22px;display:flex;flex-direction:column;gap:16px;position:sticky;top:84px}
+.sum h3{font-size:26px}
+.sum dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px 14px;font-size:13.5px}
+.sum dt{color:var(--muted)}.sum dd{margin:0;font-weight:400;text-align:right;overflow-wrap:anywhere}
+.price{border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price b{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1}
+.price span{font-size:13px;color:var(--muted)}
+.est{font-size:12px;color:var(--muted);margin-top:-8px}
+.sum details{font-size:13px}
+.sum summary{cursor:pointer;font-weight:400}
+.mini{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.mini td,.mini th{padding:6px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:300}
+.mini td:last-child,.mini th:last-child{text-align:right}
+.mini tr.cur td{font-weight:500}
+.warn{font-size:12.5px;color:var(--danger);display:grid;gap:4px}
+.warn:empty{display:none}
+.sum ul{margin:0;padding:0;list-style:none;font-size:13px;color:var(--muted);display:grid;gap:6px}
+.sum li{display:grid;grid-template-columns:16px 1fr;gap:8px}
+.sum .btn{width:100%}
+
+/* fiche technique */
+dialog.fiche{width:min(1100px,calc(100% - 24px));max-height:calc(100% - 24px);padding:0;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg)}
+dialog.fiche::backdrop{background:rgba(22,23,21,.55)}
+.fbar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 18px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.fbar b{font-family:var(--serif);font-size:22px;font-weight:600}
+.fdoc{padding:clamp(16px,3vw,36px)}
+.fdoc header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--fg);padding-bottom:14px}
+.fdoc header h2{font-size:clamp(28px,3.4vw,40px)}
+.fdoc header p{font-size:13px;color:var(--muted)}
+.fdoc section{margin-top:28px;break-inside:avoid-page}
+.fdoc h4{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--accent);margin-bottom:10px}
+.fdoc .kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 24px}
+.fdoc .kv div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:7px 0;font-size:13.5px}
+.fdoc .kv span{color:var(--muted)}
+.fdoc .kv b{font-weight:400;text-align:right}
+.fdoc .views2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fdoc .views2 figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px}
+.fdoc .views2 figcaption{font-size:12px;color:#6E6F67;text-align:center}
+.fdoc table{width:100%;border-collapse:collapse;font-size:12.5px}
+.fdoc th,.fdoc td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.fdoc th{font-weight:500;background:color-mix(in srgb,var(--fg) 5%,transparent)}
+.fdoc td.n{text-align:right;font-variant-numeric:tabular-nums}
+.fdoc th.ref,.fdoc td.ref{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.fdoc .note{font-size:12px;color:var(--muted);margin-top:8px}
+.fdoc .sw-dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.25);vertical-align:-1px;margin-right:6px}
+
+@media (max-width:1180px){.studio{grid-template-columns:minmax(0,360px) minmax(0,1fr)}.sum{position:static;grid-column:1/-1}}
+@media (max-width:900px){
+  .head .wrap{grid-template-columns:1fr;gap:16px}
+  .studio{grid-template-columns:minmax(0,1fr)}
+  .stage{position:static;min-height:0;order:-1}
+  .mock{min-height:0}.mock svg{max-width:420px}
+  .fdoc .views2{grid-template-columns:1fr}
+}
+@media (max-width:420px){.sup{grid-template-columns:repeat(3,1fr)}.sizes{grid-template-columns:repeat(3,minmax(0,1fr))}.techs{grid-template-columns:1fr}}
+
+@media print{
+  body.print-fiche>*:not(dialog){display:none!important}
+  body.print-fiche dialog.fiche{position:static;display:block;width:100%;max-height:none;border:0;background:#fff;color:#23241F;overflow:visible}
+  body.print-fiche .fbar{display:none}
+  body.print-fiche .fdoc{padding:0}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#studio">Aller au studio</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Accueil">
+      <svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="2" width="30" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 26 26 8" stroke="var(--accent)" stroke-width="2.2" stroke-dasharray="3 2.6"/></svg>
+      <span><span data-brand>Atelier</span><small data-tagline>Confection textile · marque blanche</small></span>
+    </a>
+    <nav class="menu" aria-label="Navigation principale">
+      <a href="index.html#supports">Supports</a>
+      <a href="index.html#techniques">Marquage</a>
+      <a href="index.html#processus">Processus</a>
+      <a href="index.html#qualite">Qualité</a>
+      <a href="studio.html" aria-current="page">Studio</a>
+    </nav>
+    <a class="btn sm solid" href="#devis">Demander un devis</a>
+  </div>
+</header>
+
+<main>
+<section class="head">
+  <div class="wrap">
+    <div><p class="eyebrow">Studio de création</p><h1>Configurez votre pièce.<br><em>Nous la fabriquons.</em></h1></div>
+    <p class="lead">Choisissez le support et ses options, placez vos motifs, et obtenez une estimation par palier ainsi qu'une fiche technique prête pour le devis. Séries à partir de <span data-moq>500</span> pièces, étiquetées à votre marque.</p>
+  </div>
+</section>
+
+<section class="studio wrap" id="studio" aria-label="Studio de création">
+  <div class="panel">
+    <div class="step">
+      <h3><i>1</i>Support<span class="val" id="vSup"></span></h3>
+      <div class="sup" id="sup"></div>
+    </div>
+    <div class="step">
+      <h3><i>2</i>Modèle</h3>
+      <p class="hint" id="supPitch"></p>
+      <div id="opts"></div>
+    </div>
+    <div class="step">
+      <h3><i>3</i>Matière</h3>
+      <div class="mats" id="mats"></div>
+      <p class="hint" id="care"></p>
+    </div>
+    <div class="step">
+      <h3><i>4</i>Coloris<span class="val" id="vCol"></span></h3>
+      <p class="hint">Plusieurs coloris possibles, <span data-moq-color>100</span> pièces minimum chacun. Le premier sélectionné est affiché.</p>
+      <div class="sw" id="sw"></div>
+    </div>
+    <div class="step">
+      <h3><i>5</i>Marquage<span class="val" id="vMk"></span></h3>
+      <p class="hint">Cochez un ou plusieurs emplacements, puis réglez chacun : technique, motif, taille.</p>
+      <div class="zones" id="zones"></div>
+      <div class="mk" id="mk" hidden>
+        <div class="mk-h"><b id="mkTitle"></b><button type="button" class="link" style="background:none;border-left:0;border-right:0;border-top:0;font-size:13px;padding:0 0 2px" id="rmZone">Retirer l'emplacement</button></div>
+        <small id="mkPos" class="hint" style="margin-top:-8px"></small>
+        <div class="techs" id="techs"></div>
+        <p class="rule" id="mkRule"></p>
+        <div class="grp" id="mkColorsWrap" style="margin-top:0"><span>Nombre de couleurs</span><div class="chips" id="mkColors"></div></div>
+        <div class="tabs" role="tablist" aria-label="Source du motif">
+          <button type="button" role="tab" aria-selected="true" data-tab="up">Importer un fichier</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="tx">Texte</button>
+        </div>
+        <div class="tabp on" id="tab-up">
+          <label class="drop" id="drop">Glissez votre fichier ici ou <u>parcourez</u><br><span style="font-size:12px">SVG, PNG, JPG · fond transparent conseillé</span><input type="file" id="file" accept="image/png,image/jpeg,image/svg+xml,image/webp"></label>
+          <p class="status" id="st"></p>
+        </div>
+        <div class="tabp" id="tab-tx">
+          <input class="in" type="text" id="txt" placeholder="Nom de marque, slogan…" maxlength="40">
+          <select class="in" id="font"><option value="Bebas Neue">Bebas Neue — bold</option><option value="Playfair Display">Playfair Display — élégant</option><option value="Cormorant Garamond">Cormorant — éditorial</option><option value="Pacifico">Pacifico — script</option><option value="Jost">Jost — moderne</option></select>
+          <div class="inks"><label>Couleur <input type="color" id="txtc" value="#23241F"></label></div>
+        </div>
+        <div class="range"><span>Taille</span><input type="range" id="scale" min="20" max="100" value="80" aria-label="Taille du motif"><span id="scalev"></span></div>
+        <div class="range"><span>Rotation</span><input type="range" id="rot" min="-45" max="45" value="0" aria-label="Rotation du motif"><span id="rotv"></span></div>
+        <div class="row" style="justify-content:space-between">
+          <label class="tog"><input type="checkbox" id="flip">Miroir</label>
+          <div class="row"><button type="button" class="btn sm" id="center">Recentrer</button><button type="button" class="btn sm" id="clearMotif">Retirer le motif</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <h3><i>6</i>Étiquetage et packaging</h3>
+      <p class="hint">Tout porte votre nom : griffe, hang-tag, polybag et cartons.</p>
+      <input class="in" style="margin-top:14px" type="text" id="brand" placeholder="Nom de votre marque" maxlength="24" autocomplete="organization">
+      <div class="grp" id="griffeWrap"><span>Griffe de col</span><div class="chips" id="griffe"></div></div>
+      <div class="grp"><span>Conditionnement</span><div class="chips" id="polybag"></div></div>
+      <div class="row" style="margin-top:12px;gap:18px">
+        <label class="tog"><input type="checkbox" id="hangtag" checked>Hang-tag</label>
+        <label class="tog"><input type="checkbox" id="ean" checked>Codes EAN</label>
+      </div>
+    </div>
+    <div class="step">
+      <h3><i>7</i>Quantité et tailles<span class="val" id="vQty"></span></h3>
+      <div class="qty" id="qty"></div>
+      <div class="grp" id="genreWrap"><span>Gamme de tailles</span><div class="chips" id="genre"></div></div>
+      <div class="sizes" id="sizes"></div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="top">
+      <span><b id="tSup"></b> · <span id="tCol"></span></span>
+      <div class="views" role="group" aria-label="Vue"><button type="button" data-v="f" aria-pressed="true">Devant</button><button type="button" data-v="b" aria-pressed="false">Dos</button></div>
+    </div>
+    <div class="mock" id="mock"></div>
+    <div class="thumbs" id="thumbs" aria-label="Coloris sélectionnés"></div>
+    <div class="acts">
+      <span class="tip">Faites glisser le motif actif pour l'ajuster.</span>
+      <button type="button" class="btn sm" id="png">Télécharger l'aperçu</button>
+    </div>
+  </div>
+
+  <aside class="panel sum" aria-label="Récapitulatif">
+    <h3>Votre série</h3>
+    <dl id="recap"></dl>
+    <div class="price"><b id="pUnit">—</b><span id="pTot"></span></div>
+    <p class="est">Estimation indicative HT, confirmée sur devis après échantillon.</p>
+    <div class="warn" id="warn" role="status"></div>
+    <details>
+      <summary>Détail et prix par palier</summary>
+      <table class="mini" id="brk"></table>
+      <table class="mini" id="tiers"></table>
+    </details>
+    <button type="button" class="btn solid" id="openFiche">Voir ma fiche technique</button>
+    <a class="btn" href="#devis" id="toDevis">Envoyer ce brief à l'atelier</a>
+    <ul>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--accent)" stroke-width="1.4"><path d="m3 8 3.5 3.5L13 5"/></svg>Échantillon physique avant production</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--accent)" stroke-width="1.4"><path d="m3 8 3.5 3.5L13 5"/></svg>BAT signé pour chaque emplacement</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--accent)" stroke-width="1.4"><path d="m3 8 3.5 3.5L13 5"/></svg>Aucune mention de l'atelier sur vos pièces</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="sec alt devis" id="devis">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Devis</p>
+      <h2>Envoyez votre brief.</h2>
+      <p class="who">Le résumé de votre configuration est pré-rempli ci-contre. Ajoutez vos dates, contraintes de tailles ou de packaging. Réponse sous <span data-delay="quote">48 h</span>.</p>
+      <div class="coord"><a data-email href="#">email</a><br><a data-phone href="#">téléphone</a><br><span data-address></span></div>
+    </div>
+    <form class="f" data-lead novalidate>
+      <label>Nom<input type="text" name="nom" data-label="Nom" autocomplete="name" required></label>
+      <label>Société ou projet<input type="text" name="societe" data-label="Société" autocomplete="organization"></label>
+      <label>Email<input type="email" name="email" data-label="Email" autocomplete="email" required></label>
+      <label>Téléphone / WhatsApp<input type="tel" name="tel" data-label="Téléphone" autocomplete="tel"></label>
+      <label class="full">Votre brief<textarea name="brief" id="brief" data-label="Brief" style="min-height:260px"></textarea></label>
+      <p class="note">Vos fichiers de motif vous seront demandés en réponse, avec le BAT.</p>
+      <p class="err" role="alert"></p>
+      <button class="btn solid" type="submit" style="justify-self:start">Envoyer ma demande</button>
+      <p class="ok" role="status">Merci, votre brief est bien parti. Nous revenons vers vous sous <span data-delay="quote">48 h</span>.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span data-year>2026</span> <span data-brand>Atelier</span> — <span data-legal>Raison sociale</span></span>
+    <span><a href="index.html">Accueil</a> · <a href="#devis">Contact</a> · Mentions légales · Confidentialité</span>
+  </div>
+</footer>
+
+<dialog class="fiche" id="fiche" aria-labelledby="ficheTitle">
+  <div class="fbar"><b id="ficheTitle">Fiche technique</b><div class="row"><button type="button" class="btn sm accent" id="printFiche">Imprimer / PDF</button><button type="button" class="btn sm" id="closeFiche">Fermer</button></div></div>
+  <div class="fdoc" id="fdoc"></div>
+</dialog>
+
+<script src="assets/config.js"></script>
+<script src="assets/catalog.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/studio.js"></script>
+</body>
+</html>
